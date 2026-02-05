@@ -15,38 +15,50 @@ body {
 
 .container {
   text-align: center;
+  width: 100%;
 }
 
 h1 {
   font-size: 2.5rem;
   margin-bottom: 40px;
+  color: #ff4d6d;
+  text-shadow: 2px 2px white;
 }
 
 .buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
   position: relative;
-  width: 300px;
-  height: 200px;
-  margin: 0 auto;
+  min-height: 150px; 
 }
 
 button {
   font-size: 1.2rem;
-  padding: 15px 25px;
+  padding: 15px 30px;
   border-radius: 12px;
   border: none;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  font-weight: bold;
+  transition: transform 0.2s ease, background-color 0.3s;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+button:hover {
+  transform: scale(1.1);
 }
 
 #yesBtn {
   background: #ff4d6d;
   color: white;
+  z-index: 2;
 }
 
 #noBtn {
   background: #555;
   color: white;
   position: absolute;
-  right: 0;
-  bottom: 0;
+  transition: all 0.2s ease;
+  left: 55%;
 }

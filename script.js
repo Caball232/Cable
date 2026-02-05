@@ -1,8 +1,8 @@
 const noBtn = document.getElementById("noBtn");
 const yesBtn = document.getElementById("yesBtn");
-const question = document.getElementById("question");
 
 let yesScale = 1;
+let noScale = 1;
 
 function moveNoButton() {
   const maxX = window.innerWidth - noBtn.offsetWidth;
@@ -15,15 +15,20 @@ function moveNoButton() {
   noBtn.style.left = `${x}px`;
   noBtn.style.top = `${y}px`;
 
+  // YES grows
   yesScale += 0.15;
   yesBtn.style.transform = `scale(${yesScale})`;
+
+  // NO shrinks
+  noScale -= 0.15;
+  if (noScale < 0.25) noScale = 0.25;
+  noBtn.style.transform = `scale(${noScale})`;
 }
 
 noBtn.addEventListener("mouseenter", moveNoButton);
 noBtn.addEventListener("touchstart", moveNoButton);
 
 yesBtn.addEventListener("click", () => {
-  question.innerText = "YAYYYYY 💕🥰💞";
   document.body.innerHTML = `
     <div style="
       height:100vh;
@@ -36,7 +41,7 @@ yesBtn.addEventListener("click", () => {
       text-align:center;
     ">
       <h1 style="font-size:3rem;">You said YES 😭💖</h1>
-      <p style="font-size:1.5rem;">Best decision ever 💘</p>
+      <p style="font-size:1.5rem;">Good girl.</p>
     </div>
   `;
 });
